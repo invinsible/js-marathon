@@ -3,20 +3,8 @@ const secondRow =  prompt('Введите вторую строку');
 const marker = prompt('Какую букву будем считать?');
 
 function getRow(firstRow, secondRow) {    
-    let numsFirst = 0;
-    let numsSecond = 0;
-
-    for(let i = 0; i < firstRow.length; i++) {
-        if (firstRow.charAt(i) == marker) {
-            numsFirst += 1;
-        }
-    }
-
-    for(let j = 0; j < secondRow.length; j++) {
-        if (secondRow.charAt(j) == marker) {
-            numsSecond += 1;
-        }
-    }
+    let numsFirst = letterCount(firstRow, marker);
+    let numsSecond = letterCount(secondRow, marker);       
 
     if (numsFirst > numsSecond) {
         return 'В слове "' + firstRow + '" больше букв ' + marker;
@@ -24,7 +12,20 @@ function getRow(firstRow, secondRow) {
         return 'Строки равны по букве ' + marker;
     } else {
         return 'В слове "' + secondRow + '" больше букв ' + marker;
-    }    
+    }
+}
+
+// Count same letters in stroke
+function letterCount(stroke, letter) {
+    let counter = 0;
+
+    for(let i = 0; i < stroke.length; i++) {
+        if (stroke.charAt(i) == letter) {
+            counter += 1;
+        }
+    }
+
+    return counter;
 }
 
 console.log(getRow(firstRow, secondRow));
