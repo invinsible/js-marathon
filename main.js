@@ -1,6 +1,6 @@
-const firstRow = prompt('Введите первую строку');
-const secondRow =  prompt('Введите вторую строку');
-const marker = prompt('Какую букву будем считать?');
+//const firstRow = prompt('Введите первую строку');
+//const secondRow =  prompt('Введите вторую строку');
+//const marker = prompt('Какую букву будем считать?');
 
 function getRow(firstRow, secondRow) {    
     let numsFirst = letterCount(firstRow, marker);
@@ -30,4 +30,4 @@ function containStroke(part, letter) {
  return 'В слове "' + part + '" больше букв "' + letter + '"'
 }
 
-console.log(getRow(firstRow, secondRow));
+//console.log(getRow(firstRow, secondRow));
