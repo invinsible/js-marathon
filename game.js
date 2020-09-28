@@ -6,23 +6,26 @@ const replics = [
     ' с размаху ударил кулаком ',
     ' ударил ногой с разворота ',
     ' дотянулся пяткой до лба ',
-    ' дал с локтя '
+    ' дал с локтя ',
+    ' скрутил в бараний рог ',
+    ' засадил промеж ушей '
 ];
 
-// Support functions
-function random(num) {
-    return Math.ceil(Math.random() * num);   
-}
+function random(max, min = 0) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
 // Start game
 function startGame() {
-    const player = new Unit('Player', 'playerHp', true, false);
+    const player = new Unit('Player', 'playerHp');
     const enemy = new Unit('Enemy', 'enemyHp');
     player.renderHp();
     enemy.renderHp();
 
-    console.log(player);
-    console.log(enemy);
+    //console.log(player);
+    //console.log(enemy);
 
     $btn.addEventListener('click', function() {
         player.kick(enemy);
@@ -44,7 +47,8 @@ function startGame() {
         player.healing();
         enemy.healing();
         player.renderHp();
-        enemy.renderHp(); 
+        enemy.renderHp();
+        
         this.disabled = true;
     });
 }
