@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <button id="start" type="button">start</button>
 
-    <div class="game__wrapper">
+
+    <div class="game__wrapper" id="gameWrap">
         <div class="player">
             <p>Player</p>
             <p id="playerHp">0 / 0</p>
@@ -19,10 +21,14 @@
             <p id="enemyHp">0 / 0</p>
         </div>
 
-        <p id="question">__blank__</p>
+        <p id="question"></p>
+
         <form id="form">
             <input id="answer" type="text" placeholder="Type your answer">
             <button id="checkAnswer" type="submit">Check</button>
+            <button id="nextQuestion" type="button" disabled>nextQuestion</button>
+
+            <button id="roll" type="button">roll</button>
         </form>
         
         
