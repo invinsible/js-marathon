@@ -71,18 +71,18 @@ function init() {
             return false
         }
 
-        let randNum = random(activeQuestions.length - 1);  
-        activeQuestions[randNum].isDisable = true;  
+        let randNum = random(activeQuestions.length - 1);
+        activeQuestions[randNum].isDisable = true;
+        activeQuestions[randNum].isActive = true;
 
-        $quetion.innerText = activeQuestions[randNum].questionText;              
+        $quetion.innerText = activeQuestions[randNum].questionText;
     }
 
     $start.addEventListener('click', function(){
         $gameWrap.style.opacity = 1;
         this.disabled = true;
         renderQuestion();        
-    });
-       
+    });       
 
     $form.addEventListener('submit', questionHandler);
 
@@ -99,8 +99,8 @@ function init() {
 
     function questionHandler(evt) {
         evt.preventDefault();
-    
-        let currentQ =  questionsArr[randomQuestion];
+
+        let currentQ = questionsArr.find(item => item.isActive == true);
         let currentA = document.getElementById('answer').value.toLowerCase();
     
         if(currentQ.answer.find(item => item == currentA)) {            
@@ -111,6 +111,8 @@ function init() {
     
         boss.renderHp();
         player.renderHp();
+
+        currentQ.isActive = false;
 
         $nextQuestion.disabled = false;
         $checkAnswer.disabled = true;
